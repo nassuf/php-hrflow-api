@@ -19,7 +19,7 @@ Then create a new `Hrflow` object with this key:
 require __DIR__ . '/vendor/autoload.php';
 
 // Authentication to api
-$client = new Hrflow('yourShinyKey');
+$client = new Client('yourShinyKey');
 
 // Now, you can use the api, Congrats !
 
@@ -31,7 +31,7 @@ $client = new Hrflow('yourShinyKey');
 require __DIR__ . '/vendor/autoload.php';
 
 // Authentication to api
-$client = new Hrflow('yourShinyKey');
+$client = new Client('yourShinyKey');
 
 $profile = $client->profile->get(new ProfileID('102b6aa635fnf8ar70e7888ee63c0jde0c753dtg'));
 $name = $profile['name'];
@@ -225,7 +225,7 @@ This package supplies webhooks support as well.
   * Example on how to handle webhooks
 
     ```php
-  	$client = new Hrflow('api_key', 'webhook_key');
+  	$client = new Client('api_key', 'webhook_key');
 
   	// Set an handler for webhooks event.
     // Event name argument is actually not mandatory

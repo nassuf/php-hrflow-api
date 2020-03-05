@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 final class HrflowSourceTest extends TestCase {
 
   public function testGetSources(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('source_id', 'name', 'type', 'archive', 'date_creation');
 
       $getSources = function () use ($api) { return $api->source->list(); };
@@ -25,7 +25,7 @@ final class HrflowSourceTest extends TestCase {
   }
 
   public function testGetSource(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('source_id',
         'name',
         'type',
@@ -52,7 +52,7 @@ final class HrflowSourceTest extends TestCase {
   }
 
   public function testGetSourceWithInvalidSourceId(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
 
       $source_id = '19794b310c784db6db0140706468a55514d577e1';
       $getSource = function () use ($api, $source_id) {  return $api->source->get($source_id); };

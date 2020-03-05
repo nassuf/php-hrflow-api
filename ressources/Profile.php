@@ -69,13 +69,13 @@
     }
 
 
-    public function list(array $source_ids, $stage=null, $seniority="all", $date_start="1494539999", $date_end=null, $job_id=null, $job_reference=null, $page=1, $limit=30,
+    public function list(array $source_ids, $seniority="all", $date_start="1494539999", $date_end=null, $job_id=null, $job_reference=null, $page=1, $limit=30,
                          $sort_by='date_reception', $order_by=null) {
-
-      $date_end = time();
+      if(!$date_end){
+        $date_end = time();
+      }
       $query = [] ;
       $query["source_ids"] = json_encode($source_ids);
-      $query["stage"] = $stage;
       $query["seniority"] = $seniority;
       $query["date_end"] = $date_end;
       $query["date_start"] = $date_start;
@@ -166,13 +166,11 @@
       $this->hrflow = $parent;
     }
 
-    public function list(string $source_id, string $profile_id, string $profile_reference=null) {
+    public function list(string $source_id, HrflowProfileIdent $profile_ident, string $profile_reference=null) {
       $query = array(
         'source_id'  => $source_id
       );
-      if($profile_id){
-        $query['profile_id'] = $profile_id ;
-      }
+      $profile_ident->addToArray($query);
       if($profile_reference){
         $query['profile_reference'] = $profile_reference ;
       }
@@ -192,13 +190,11 @@
       $this->hrflow = $parent;
     }
 
-    public function get(string $source_id, string $profile_id, string $profile_reference=null) {
+    public function get(string $source_id, HrflowProfileIdent $profile_ident, string $profile_reference=null) {
       $query = array(
         'source_id'  => $source_id
       );
-      if($profile_id){
-        $query['profile_id'] = $profile_id ;
-      }
+      $profile_ident->addToArray($query);
       if($profile_reference){
         $query['profile_reference'] = $profile_reference ;
       }
@@ -219,13 +215,11 @@
     }
 
 
-    public function list(array $source_ids, string $job_id, string $stage, $limit=10, $use_agent=1) {
+    public function list(array $source_ids, HrflowJobIdent $job_ident, string $stage, $limit=10, $use_agent=1) {
       $query = array(
         'source_ids'  => json_encode($source_ids)
       );
-      if($job_id){
-        $query['job_id'] = $job_id ;
-      }
+      $job_ident->addToArray($query);
       if($stage){
         $query['stage'] = $stage ;
       }
@@ -350,19 +344,7 @@ class HrflowProfileReasoning
       $this->hrflow = $parent;
     }
 
-    public function check(array $profileData, array $trainingMetadata=[]) {
-
-      $trainingMetadata = ValueFormater::format_trainingMetadata($trainingMetadata);
-      $payload = array(
-        'profile_json'       => $profileData,
-        'training_metadata'  => $trainingMetadata
-      );
-      $resp = $this->hrflow->_rest->post("profile/json/check", $payload);
-
-      return json_decode($resp->getBody(), true)['data'];
-    }
-
-    public function add(string $source_id, array $profile_json, $profile_reference=null, $profile_labels=[], $profile_metadatas=[], $sync_parsing=0, $timestamp_reception=null) {
+    public function add(string $source_id, array $profile_json, $profile_reference=null, $timestamp_reception=null, $profile_labels=[], $profile_metadatas=[], $sync_parsing=0) {
 
       $trainingMetadata = ValueFormater::format_trainingMetadata($trainingMetadata);
       if (!empty($profile_reference) && $profile_reference instanceof ProfileReference) {
@@ -370,7 +352,8 @@ class HrflowProfileReasoning
       }
       $timestamp_reception = ValueFormater::format_dateToTimestamp($timestamp_reception, 'timestamp_reception');
 
-      $payload = array(
+      $payload = [
+          'data'=> json_encode(['test']),
           'source_id'           => $source_id,
           'profile_json'        => $profile_json,
           'profile_type'        => 'json',
@@ -378,12 +361,14 @@ class HrflowProfileReasoning
           'profile_labels'      => $profile_labels,
           'profile_metadatas'   => $profile_metadatas,
           'sync_parsing'        => $sync_parsing
-      );
+      ];
 
       RequestBodyUtils::add_if_not_null($payload, 'timestamp_reception', $timestamp_reception);
-      $resp = $this->hrflow->_rest->post("profile", $payload);
+      $data = ['data' => json_encode($payload)];
+      $resp = $this->hrflow->_rest->postData("profile", $data);
 
       return json_decode($resp->getBody(), true)['data'];
+
     }
 }
  ?>

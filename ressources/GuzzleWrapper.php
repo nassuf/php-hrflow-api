@@ -33,18 +33,27 @@
     {
         $endpoint = $this->base_url.$endpoint;
         $patchLambda = function () use ($endpoint, $payload) {
-          return $this->guzzleClient->patch($endpoint, ['json' => $payload]);
+          return $this->guzzleClient->patch($endpoint, ['form_params' => $payload]);
         };
         return ReqExpHandler::exec($patchLambda);
     }
 
-    public function post($endpoint, $payload='')
+    public function postJson($endpoint, $json='')
     {
         $endpoint = $this->base_url.$endpoint;
-        $postLambda = function () use ($endpoint, $payload) {
-          return $this->guzzleClient->post($endpoint, ['json' => $payload]);
+        $postLambda = function () use ($endpoint, $json) {
+          return $this->guzzleClient->post($endpoint, ['json' => $json]);
         };
         return ReqExpHandler::exec($postLambda);
+    }
+
+    public function postData($endpoint, $payload='')
+    {
+      $endpoint = $this->base_url.$endpoint;
+      $postLambda = function () use ($endpoint, $payload) {
+          return $this->guzzleClient->post($endpoint, ['form_params' => $payload]);
+      };
+      return ReqExpHandler::exec($postLambda);
     }
 
     public function postFile($endpoint, $payload, $file)

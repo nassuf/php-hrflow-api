@@ -6,7 +6,7 @@ require_once __DIR__ . '/ressources/Source.php';
 require_once __DIR__ . '/ressources/Webhook.php';
 require_once __DIR__ . '/ressources/GuzzleWrapper.php';
 
-class Hrflow
+class Client
 {
   public $DEFAULT_HOST = "https://www.rimstaging.net/sf/public/api/";
   public $DEFAULT_HOST_BASE = "v1.0/";

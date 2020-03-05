@@ -179,7 +179,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetProfilesFullArgs(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
 
       $refKeys = array('page', 'maxPage', 'count_profiles', 'profiles');
       $refProfilesKeys = array('profile_id', 'profile_reference', 'name',
@@ -232,7 +232,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetProfilesFullArgs_filterID(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
 
       $refKeys = array('page', 'maxPage', 'count_profiles', 'profiles');
       $refProfilesKeys = array('profile_id', 'profile_reference', 'name',
@@ -285,7 +285,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetProfilesFullArgs_filterReference(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
 
       $refKeys = array('page', 'maxPage', 'count_profiles', 'profiles');
       $refProfilesKeys = array('profile_id', 'profile_reference', 'name',
@@ -338,7 +338,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetProfilesMinArgs(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
 
       $refKeys = array('page', 'maxPage', 'count_profiles', 'profiles');
       $refProfilesKeys = array('profile_id', 'profile_reference', 'name',
@@ -372,7 +372,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetProfilesErrDate(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
 
       $refKeys = array('page', 'maxPage', 'count_profiles', 'profiles');
       $refProfilesKeys = array('profile_id', 'profile_reference', 'name',
@@ -397,7 +397,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetProfilesDateTime(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
 
       $refKeys = array('page', 'maxPage', 'count_profiles', 'profiles');
       $refProfilesKeys = array('profile_id', 'profile_reference', 'name',
@@ -433,7 +433,7 @@ final class HrflowProfileTest extends TestCase {
 
 
   public function testGetProfile(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('profile_id',
         'profile_reference',
         'name',
@@ -460,7 +460,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetProfile_reference(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('profile_id',
         'profile_reference',
         'name',
@@ -491,7 +491,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetProfileWithInvalidProfileSourceId(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $profile_id = 'zap';
       $source_id = 'red apple corp';
       $getProfile = function () use ($api, $profile_id, $source_id)
@@ -500,7 +500,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetDocuments(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('type',
         'file_name',
         'original_file_name',
@@ -523,7 +523,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetDocuments_reference(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('type',
         'file_name',
         'original_file_name',
@@ -550,7 +550,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetDocumentsWithInvalidProfileSourceId(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $profile_id = 'zap';
       $source_id = 'red apple corp';
       $getProfile = function () use ($api, $profile_id, $source_id) {  return $api->profile->document->list(new ProfileID($profile_id), $source_id); };
@@ -558,7 +558,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetParsing(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('hard_skills',
         'soft_skills',
         'languages',
@@ -584,7 +584,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetParsing_reference(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('hard_skills',
         'soft_skills',
         'languages',
@@ -614,7 +614,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetParsingWithInvalidProfileSourceId(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $profile_id = 'zap';
       $source_id = 'red apple corp';
       $getProfile = function () use ($api, $profile_id, $source_id) {  return $api->profile->parsing->get(new ProfileID($profile_id), $source_id); };
@@ -622,7 +622,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetScoring(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('job_id',
         'filter_reference',
         'score',
@@ -645,7 +645,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testGetScoring_reference(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('job_id',
         'filter_reference',
         'score',
@@ -673,7 +673,7 @@ final class HrflowProfileTest extends TestCase {
 
 
   public function testGetJobsWithInvalidScoringSourceId(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $profile_id = 'zap';
       $source_id = 'red apple corp';
       $getScoring = function () use ($api, $profile_id, $source_id) {  return $api->profile->scoring->list(new ProfileID($profile_id), $source_id); };
@@ -681,7 +681,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testPostProfile():void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('profile_reference', 'file_id', 'file_name', 'file_size', 'extension', 'date_reception');
       $now =  new DateTime();
       $filterType = array('api');
@@ -708,7 +708,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testPostProfile_metadata():void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('profile_reference', 'file_id', 'file_name', 'file_size', 'extension', 'date_reception');
       $now =  new DateTime();
       $filterType = array('api');
@@ -744,7 +744,7 @@ final class HrflowProfileTest extends TestCase {
 
 
   public function testPostProfiles():void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('profile_reference', 'file_id', 'file_name', 'file_size', 'extension', 'date_reception');
       $now =  new DateTime();
       $filterType = array('api');
@@ -786,7 +786,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testUpdateStage(): void {
-    $api = new Hrflow(TestHelper::getSecret());
+    $api = new Client(TestHelper::getSecret());
     $stage = "NO";
     $refKeys = array('profile_id', 'profile_reference', 'job_id', 'filter_reference', 'stage');
 
@@ -816,7 +816,7 @@ final class HrflowProfileTest extends TestCase {
   }
 
   public function testUpdateStage_reference(): void {
-    $api = new Hrflow(TestHelper::getSecret());
+    $api = new Client(TestHelper::getSecret());
     $stage = "NO";
     $refKeys = array('profile_id', 'profile_reference', 'job_id', 'filter_reference', 'stage');
 
@@ -849,7 +849,7 @@ final class HrflowProfileTest extends TestCase {
 
 
     public function testUpdateRating(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $rating = 0;
       $refKeys = array('profile_id', 'profile_reference', 'job_id', 'filter_reference', 'rating');
 
@@ -879,7 +879,7 @@ final class HrflowProfileTest extends TestCase {
     }
 
     public function testUpdateRating_reference(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $rating = 0;
       $refKeys = array('profile_id', 'profile_reference', 'job_id', 'filter_reference', 'rating');
 
@@ -1005,7 +1005,7 @@ final class HrflowProfileTest extends TestCase {
 
   public function testJsonAdd(): void {
 
-        $api = new Hrflow(TestHelper::getSecret());
+        $api = new Client(TestHelper::getSecret());
         $profile_ref = strval(rand(0, 99999));
         $refKeys = array('profile_json', 'training_metadata');
         $now =  new DateTime();
@@ -1029,7 +1029,7 @@ final class HrflowProfileTest extends TestCase {
 
   public function testJsonAdd_bad_metadata(): void {
 
-        $api = new Hrflow(TestHelper::getSecret());
+        $api = new Client(TestHelper::getSecret());
         $profile_ref = strval(rand(0, 99999));
         $refKeys = array('profile_json', 'training_metadata');
         $now =  new DateTime();
@@ -1053,7 +1053,7 @@ final class HrflowProfileTest extends TestCase {
 
   public function testJsonAdd_bad_metadata_null_filter_ref(): void {
 
-        $api = new Hrflow(TestHelper::getSecret());
+        $api = new Client(TestHelper::getSecret());
         $profile_ref = strval(rand(0, 99999));
         $refKeys = array('profile_json', 'training_metadata');
         $now =  new DateTime();
@@ -1077,7 +1077,7 @@ final class HrflowProfileTest extends TestCase {
 
   public function testJsonCheck(): void {
 
-        $api = new Hrflow(TestHelper::getSecret());
+        $api = new Client(TestHelper::getSecret());
         $profile_ref = strval(rand(0, 99999));
         $refKeys = array('profile_json', 'training_metadata');
         $datas = $this->getDataForProfileDataTest();

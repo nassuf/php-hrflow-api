@@ -27,8 +27,9 @@
       ];
     }
 
-    public function check() {
-      $resp = $this->hrflow->_rest->post("webhook/check");
+    public function check($url, $type) {
+      $json = ['url' => $url, 'type' => $type] ;
+      $resp = $this->hrflow->_rest->postJson("webhook/check", $json);
 
       return json_decode($resp->getBody(), true);
     }

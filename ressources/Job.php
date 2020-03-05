@@ -18,7 +18,6 @@
         $query['name'] = $name ;
       }
       $resp = $this->hrflow->_rest->get("jobs/searching");
-
       return json_decode($resp->getBody(), true)['data'];
     }
 
@@ -41,7 +40,7 @@ class HrflowJobJson
     $this->hrflow = $parent;
   }
 
-  public function add(string $name, $agent_id, $job_reference, array $job_json, $job_labels=[], $job_metadatas=[], $timestamp_reception=null) {
+  public function add($name, $agent_id, array $job_json, $job_reference, $timestamp_reception=null, $job_labels=[], $job_metadatas=[]) {
 
     $trainingMetadata = ValueFormater::format_trainingMetadata($trainingMetadata);
     if (!empty($profile_reference) && $profile_reference instanceof ProfileReference) {
@@ -50,19 +49,18 @@ class HrflowJobJson
     $timestamp_reception = ValueFormater::format_dateToTimestamp($timestamp_reception, 'timestamp_reception');
 
     $payload = array(
-        'name'            => $name,
-        'agent_id'        => $agent_id,
-        'reference'       => $job_reference,
-        'job_json'        => $job_json,
-        'job_labels'      => $job_labels,
-        'job_metadatas'   => $job_metadatas
+        "name"            => $name,
+        "agent_id"        => $agent_id,
+        "job_reference"   => $job_reference,
+        "job_json"        => $job_json,
+        "job_labels"      => $job_labels,
+        "job_metadatas"   => $job_metadatas
     );
 
     RequestBodyUtils::add_if_not_null($payload, 'timestamp_reception', $timestamp_reception);
 
-    $data = ['data' => $payload] ;
-    var_dump($data['data']);
-    $resp = $this->hrflow->_rest->post("job", ["body" => $data]);
+    $data = ["data" => json_encode($payload)] ;
+    $resp = $this->hrflow->_rest->postData("job", $data);
 
     return json_decode($resp->getBody(), true)['data'];
   }
@@ -78,7 +76,7 @@ class HrflowJobParsing
   public function __construct($parent) {
     $this->hrflow = $parent;
   }
-  public function get(HrflowJobIdent $job_ident, string $job_reference) {
+  public function get(HrflowJobIdent $job_ident, string $job_reference=null) {
     $query = [] ;
     if($job_reference){
       $query['job_reference'] = $job_reference ;

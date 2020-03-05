@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  HrflowApiException is the standard exception for Hrflow sdk.
+ *  HrflowApiException is the standard exception for Client sdk.
  *  All other hrflow exception inhertits from it.
  */
 class HrflowApiException extends Exception

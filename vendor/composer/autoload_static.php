@@ -13,7 +13,7 @@ class ComposerStaticInit5d0eaf9d04ba03928a5837d292a4d134
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        'd6025628ba2e22a3aa8e3a039ea46f23' => __DIR__ . '/../..' . '/Hrflow.php',
+        'c4f14c3ad868204b9dffe85f74632eeb' => __DIR__ . '/../..' . '/Client.php',
         '10a84f284ca4c9ca990b5c0a85c25fff' => __DIR__ . '/../..' . '/ressources/HrflowConstant.php',
         '1615e2fae62a34c7c47cbb53c0498623' => __DIR__ . '/../..' . '/ressources/ProfileIdent.php',
         '8961ea8075379687f09465fffe037453' => __DIR__ . '/../..' . '/ressources/JobIdent.php',

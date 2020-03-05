@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 final class HrflowJobTest extends TestCase {
 
   public function testGetJobs(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('Job_id', 'filter_reference', 'name', 'archive', 'date_creation');
 
       $getFilters = function () use ($api) { return $api->filter->list(); };
@@ -24,7 +24,7 @@ final class HrflowJobTest extends TestCase {
   }
 
   public function testGetJob(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('job_id',
         'job_reference',
         'name',
@@ -63,7 +63,7 @@ final class HrflowJobTest extends TestCase {
   }
 
   public function testGetJob_reference(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
       $refKeys = array('job_id',
         'filter_reference',
         'name',
@@ -103,7 +103,7 @@ final class HrflowJobTest extends TestCase {
 
 
   public function testGetJobWithInvalidFilterId(): void {
-      $api = new Hrflow(TestHelper::getSecret());
+      $api = new Client(TestHelper::getSecret());
 
       $job_id = 'zap';
       $filter_reference = '$filters[0][]';

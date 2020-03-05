@@ -34,7 +34,7 @@ final class HrflowWebhookTest extends TestCase {
 
   public function testwebhook_no_err() {
     self::reset_test_values();
-    $api = new Hrflow(TestHelper::getSecret(), TestHelper::getWebhookSecret());
+    $api = new Client(TestHelper::getSecret(), TestHelper::getWebhookSecret());
     $api->webhooks->setHandler(HrflowEvents::PROFILE_PARSE_ERROR, 'HrflowTestWebhook::change_zap');
     $encoded_req = TestHelper::generateWebhookRequest(HrflowEvents::PROFILE_PARSE_ERROR);
     $api->webhooks->handle($encoded_req['HTTP-HRFLOW-SIGNATURE']);
@@ -48,7 +48,7 @@ final class HrflowWebhookTest extends TestCase {
 
   public function testwebhook_no_err_array_arg() {
     self::reset_test_values();
-    $api = new Hrflow(TestHelper::getSecret(), TestHelper::getWebhookSecret());
+    $api = new Client(TestHelper::getSecret(), TestHelper::getWebhookSecret());
     $api->webhooks->setHandler(HrflowEvents::PROFILE_PARSE_ERROR, 'HrflowTestWebhook::change_zap');
     $encoded_req = TestHelper::generateWebhookRequest(HrflowEvents::PROFILE_PARSE_ERROR);
     $api->webhooks->handle($encoded_req);
@@ -62,7 +62,7 @@ final class HrflowWebhookTest extends TestCase {
 
   public function testwebhook_no_err_handler_one_arg() {
     self::reset_test_values();
-    $api = new Hrflow(TestHelper::getSecret(), TestHelper::getWebhookSecret());
+    $api = new Client(TestHelper::getSecret(), TestHelper::getWebhookSecret());
     $api->webhooks->setHandler(HrflowEvents::PROFILE_PARSE_ERROR, 'HrflowTestWebhook::change_zap2');
     $encoded_req = TestHelper::generateWebhookRequest(HrflowEvents::PROFILE_PARSE_ERROR);
     $api->webhooks->handle($encoded_req);
@@ -76,7 +76,7 @@ final class HrflowWebhookTest extends TestCase {
 
   public function testwebhook_no_handler_one_arg() {
     self::reset_test_values();
-    $api = new Hrflow(TestHelper::getSecret(), TestHelper::getWebhookSecret());
+    $api = new Client(TestHelper::getSecret(), TestHelper::getWebhookSecret());
     $api->webhooks->setHandler(HrflowEvents::PROFILE_SCORE_ERROR, 'HrflowTestWebhook::change_zap2');
     $encoded_req = TestHelper::generateWebhookRequest(HrflowEvents::PROFILE_PARSE_ERROR);
     $api->webhooks->handle($encoded_req);
@@ -90,7 +90,7 @@ final class HrflowWebhookTest extends TestCase {
 
 
 //  public function testPostCheck(): void {
-//      $api = new Hrflow(TestHelper::getSecret());
+//      $api = new Client(TestHelper::getSecret());
 //      $refKeys = array('team_name', 'webhook_url', 'webhook_id');
 //
 //      $checkWebhook = function () use ($api) { return $api->webhooks->check(); };

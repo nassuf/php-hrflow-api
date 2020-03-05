@@ -2,11 +2,11 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 // Authentication to api
-$client = new Hrflow('ask_cbe04b31bde4c51c6bf0d320d4b285c2');
+$client = new Client('ask_cbe04b31bde4c51c6bf0d320d4b285c2');
 
 // Now, you can use the api, Congrats !
 
-$sources = $client->source->list();
+$sources = $client->source->list('python');
 
 var_dump($sources);
 

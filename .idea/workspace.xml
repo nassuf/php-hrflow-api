@@ -1,65 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8ed7d642-74dd-4b68-a26f-64b9e284c556" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/job/JobEmbedding.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/job/JobParsing.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/job/JobReasoning.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/job/JobScoring.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/job/JobSearching.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileAttachment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileEmbedding.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileFeedback.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileMetadata.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileParsing.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileReasoning.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileRevealing.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileScoring.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileSearching.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileTag.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/Job.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php-hrflow-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php-hrflow-api.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/GuzzleWrapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/GuzzleWrapper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/HrflowConstant.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/HrflowConstant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/job/Job.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/JobIdent.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/job/JobIdent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/profile/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/ProfileIdent.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/profile/ProfileIdent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/Source.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/source/Source.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/Webhook.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/webhook/Webhook.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test Job.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/test Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test Source.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/test Source.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/ClientInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/ClientInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/CurlMultiHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/CurlMultiHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/StreamHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/StreamHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/RedirectMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/RedirectMiddleware.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpspec/prophecy/CHANGES.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpspec/prophecy/CHANGES.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpspec/prophecy/src/Prophecy/PhpDocumentor/ClassTagRetriever.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpspec/prophecy/src/Prophecy/PhpDocumentor/ClassTagRetriever.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/psr/log/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/LoggerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/LoggerInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/Test/LoggerInterfaceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/Test/LoggerInterfaceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/webmozart/assert/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/webmozart/assert/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/ci/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/webmozart/assert/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/src/Assert.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/webmozart/assert/src/Assert.php" afterDir="false" />
-    </list>
+    <list default="true" id="8ed7d642-74dd-4b68-a26f-64b9e284c556" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,7 +159,7 @@
       <workItem from="1584367991654" duration="599000" />
       <workItem from="1584537011564" duration="15000" />
       <workItem from="1584537041251" duration="459000" />
-      <workItem from="1587147411530" duration="11143000" />
+      <workItem from="1587147411530" duration="11387000" />
     </task>
     <servers />
   </component>

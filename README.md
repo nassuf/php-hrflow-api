@@ -33,9 +33,10 @@ require __DIR__ . '/vendor/autoload.php';
 // Authentication to api
 $client = new Client('yourShinyKey');
 
-$profile = $client->profile->get(new ProfileID('102b6aa635fnf8ar70e7888ee63c0jde0c753dtg'));
-$name = $profile['name'];
+$profile = $client->profile->parsing->get("a62ae2d5560fca7b34bb6c0c389a378f99bcdd52",new ProfileId("597b16789ba389cbc67a638d808b8f40220ba988"));
+$name = $profile['name']['text'];
 $profile_id = $profile['profile_id'];
+
 
 echo "Profile '$profile_id' is named '$name', a beautiful name actually";
 ```
@@ -54,20 +55,21 @@ $client->profile->get($profile_id, $source_id);
 $client->profile->get($profile_reference, $source_id);
 ```
 
-# Filter the ID or the reference
+# Job the ID or the reference
 It's works the same way as profile.
 
 ## Methods & Resources
   `*_id` and `*_reference` are marked as `*_ident` for simplicity.
 
-* # filters
-  * Get all filters for given team account :
+* # jobs
+  * Get all job for given team account :
   ```php
-  $client->filter->list();
+  $jobs = $client->job->searching->get();
+
   ```
-  * Get the filter information associated with filter id :
+  * Get job's information associated with job id :
   ```php
-  $client->filter->get($job_ident);
+  $job = $client->job->parsing->get(new JobID("399329b780feda71db57957d24ec9ee87d3b55a9"));
   ```
 * # Profiles
   * Retrieve the profiles information associated with some source ids :
@@ -81,25 +83,86 @@ It's works the same way as profile.
       HrflowField::SORT_BY => HrflowSortBy::RANKING,
       HrflowField::FILTER_REFERENCE => 'reference01'
   ];
-  $client->profile->list($args);
+  $profiles = $client->profile->searching->get(["a62ae2d5560fca7b34bb6c0c389a378f99bcdd52"]);
   ```
   * Add a resume to a sourced id :
   ```php
-  $client->profile->add($source_id, $file_path, [$profile_reference, $timestamp_reception, $training_metadata]);
+  $client->profile->add_file($source_id, $file_path, $profile_reference, $timestamp_reception);
+  ```
+  * Add a json to a sourced id :
+  ```php
+  $client->profile->add_json($source_id, $profileData, $profile_reference, $timestamp_reception);
+  ```
+   `$profileData` is an array like this:
+  ```php
+  $profileData = [
+    "name" => "Hari Seldon",
+    "email"=> "harisledon@trantor.trt",
+    "address" => "1 rue streeling",
+    "info" => [
+        "name" => "name info",
+        "email" => "tata",
+        "phone" => "0202",
+        "location" => "somewhere",
+        "urls" => [
+            "from_resume" => [],
+            "linkedin" => "",
+            "twitter" => "",
+            "facebook" => "",
+            "github" => "",
+            "picture" => ""],
+        "location"=> [
+            "text"=>""]],
+    "summary" => "test summary",
+    "experiences" => [[
+        "start" => "15/02/12600",
+        "end" => "",
+        "title" => "Lead",
+        "company" => "Departement de la psychohistoire",
+        "location" => [
+            "text" => "Trator"],
+        "description" => "Developping psychohistoire."
+    ]
+    ],
+    "educations" => [[
+        "start" => "12540",
+        "end" => "12550",
+        "title" => "Diplome d'ingénieur mathematicien",
+        "school" => "Université de Hélicon",
+        "description" => "Etude des mathematique",
+        "location" => [
+            "text" => "Hélicon"]
+    ]
+    ],
+    "skills" => ["manual skill", "Creative spirit", "Writing skills", "Communication", "Project management", "French"],
+    "languages" => ["arab"],
+    "interests" => ["football"],
+    "tags" => [],
+    "metadatas" => [],
+    "labels" => []
+    ] ;
   ```
   * Add all resume from a directory to a sourced id, use `$recurs` to enable recursive mode :
   ```php
-  $client->profile->addList($source_id, $file_path, [$is_recurs, $timestamp_reception, $training_metadata]);
+  $client->profile->addList($source_id, $file_path, $is_recurs, $timestamp_reception);
   ```
   It returns an array like: `result[filename] = server_reponse`.
-  Can throw `RiminderApiProfileUploadException`
+  Can throw `HrflowApiProfileUploadException`
   * Get the profile information associated with both profile id and source id :
   ```php
-  $client->profile->get($profile_ident, $source_id);
+  $client->profile->parsing->get($source_id, $profile_ident);
   ```
   * Retrieve the profile documents associated with both profile id and source id :
   ```php
-  $client->profile->document->list($profile_ident, $source_id);
+  $client->profile->attachment->list($source_id, $profile_ident);
+  ```
+   * Retrieve the profile tags associated with both profile id and source id :
+  ```php
+  $client->profile->tag->list($source_id, $profile_ident);
+  ```
+   * Retrieve the profile metadata associated with both profile id and source id :
+  ```php
+  $client->profile->metadata->list($source_id, $profile_ident);
   ```
   * Retrieve the profile parsing data associated with both profile id and source id :
    ```php
@@ -107,94 +170,16 @@ It's works the same way as profile.
    ```
   * Retrieve the profile scoring data associated with both profile id and source id :
    ```php
-   $client->profile->scoring->list($profile_ident, $source_id);
+   $client->profile->scoring->get($profile_ident, $source_id);
    ```
   * Reveal the profile interpretability data associated with both profile id and source id related with the filter :
     ```php
     $client->profile->revealing->get($profile_ident, $job_ident, $source_id);
     ```
-  * Edit the profile stage of given a filter :
-  ```php
-  $client->profile->stage->set($profile_ident, $source_id, $job_ident, $rating);
-  ```
-  * Edit the profile rating of given a filter :
-  ```php
-  $client->profile->rating->set($profile_ident, $source_id, $job_ident, $rating)
-  ```
-  * Check if a parsed profile is valid
-  ```php
-  $client->profile->json->check($profileData, $trainingMetadata);
-  ```
-  * Add a parsed profile to the platform
-  ```php
-  $client->profile->json->add($source_id, $profileData, $trainingMetadata, $profile_reference, $timestamp_reception);
-  ```
-
-  `$profileData` is an array like this:
-  ```php
-  $profileData = [
-      "name" => "test persona",
-      "email" => "someone@someonelse.com",
-      "address" => "1 rue de somexhereelse",
-      "experiences" => [
-        [
-          "start" => "15/02/2018",
-          "end" => "1/06/2018",
-          "title" => "PDG",
-          "company" => "red apple corp",
-          "location" => "Paris",
-          "description" => "Doing IT integration and RPA"
-        ]
-      ],
-      "educations" => [
-        [
-          "start" => "2000",
-          "end" => "2018",
-          "title" => "Diplome d'ingénieur",
-          "school" => "UTT",
-          "description" => "Management des systèmes d'information",
-          "location" => "Mars"
-        ]
-      ],
-      "skills" => [
-        "manual skill",
-        "Creative spirit",
-        "Writing skills",
-        "World domination",
-        "Project management",
-        "French",
-        "Italian",
-        "Korean",
-        "English",
-        "Accounting",
-        "Human resources"
-      ]
-    ];
-  ```
-
-  `$trainingMetadata` is a array of array like this:
-  ```php
-  $trainingMetadata = [
-          [
-            "filter_reference"  => "reference0",
-            "stage"             => None,
-            "stage_timestamp"   => None,
-            "rating"            => 2,
-            "rating_timestamp"  => 1530607434
-          ],
-          [
-            "filter_reference" => "reference1",
-            "stage"            => None,
-            "stage_timestamp"  => None,
-            "rating"           => 2,
-            "rating_timestamp" => 1530607434
-          ]
-        ];
-  ```
 * # Sources
   * Get all sources for given team account:
   ```php
-  $client->source->list();
+  $client->source->list('python', 1, 1);
   ```
   * Get the source information associated with source id:
    ```php
@@ -246,11 +231,8 @@ This package supplies webhooks support as well.
     ```
 * # Constants
   * `HrflowFields` Contains to fill profile's `args` array for /profiles constants.
-  * `RiminderStage`  Contains profile stage constants.
   * `HrflowSortBy`  Contains sorting options constants.
-  * `RiminderOrderBy`  Contains order options constants.
-  * `RiminderSeniority`  Contains profile seniority constants.
-  * `RiminderTraining_metadata`  Contain metadata fields for profile adding constants.
+  * `HrflowOrderBy`  Contains order options constants.
   * `HrflowEvents` Constains event name for webhooks
 * # Exception
   * `HrflowApiException` parent of all thrown exception. Thrown when an error occurs.
@@ -258,9 +240,9 @@ This package supplies webhooks support as well.
     * `getHttpCode()` to get the http code of the response.
     * `getHttpMessage()` to get the reason of response error.
   * `HrflowApiArgumentException` thrown when an invalid argument is pass to a method
-  * `RiminderApiProfileUploadException` thrown when an error occurs during file upload.
+  * `HrflowApiProfileUploadException` thrown when an error occurs during file upload.
     * `getFailedFiles()` to get not sended files list.
     * `getFailedFilesWithTheirExp()` to get not sended files with their exception (like: `exception_occured_during_tranfert = failed_file_list[filename]`)
     * `getSuccefullySendedFiles()` to get successfuly sended files with their response from server (like: `server_reponse_for_sucessful_upload = sucess_file_list[filename]`)
 
-For details about method's arguments and return values see [api's documentation](https://developers.riminder.net/v1.0/reference#source)
+For details about method's arguments and return values see [api's documentation](https://developers.hrflow.ai)

@@ -50,9 +50,9 @@ $profile_id = new ProfileID('102b6aa635fnf8ar70e7888ee63c0jde0c753dtg');
 $profile_reference = new ProfileReference('reference01');
 $source_id = '34566aa635fnrtar70e7568ee6345jde0c75ert4';
 // This:
-$client->profile->get($profile_id, $source_id);
+$client->profile->parsing->get($profile_id, $source_id);
 // Works as much as:
-$client->profile->get($profile_reference, $source_id);
+$client->profile->parsing->get($profile_reference, $source_id);
 ```
 
 # Job the ID or the reference

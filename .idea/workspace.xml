@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8ed7d642-74dd-4b68-a26f-64b9e284c556" name="Default Changelist" comment="" />
+    <list default="true" id="8ed7d642-74dd-4b68-a26f-64b9e284c556" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/secretLocation.png" beforeDir="false" afterPath="$PROJECT_DIR$/pictures/secretLocation.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,6 +78,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pictures" />
       <recent name="$PROJECT_DIR$/ressources/webhook" />
       <recent name="$PROJECT_DIR$/ressources/source" />
       <recent name="$PROJECT_DIR$/ressources/job" />
@@ -159,7 +165,7 @@
       <workItem from="1584367991654" duration="599000" />
       <workItem from="1584537011564" duration="15000" />
       <workItem from="1584537041251" duration="459000" />
-      <workItem from="1587147411530" duration="11387000" />
+      <workItem from="1587147411530" duration="11544000" />
     </task>
     <servers />
   </component>

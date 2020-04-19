@@ -3,39 +3,37 @@
   /**
    *
    */
-  class HrflowWebhook
+  class Webhook
   {
     private const SIGNATURE_HEADER = 'HTTP-HRFLOW-SIGNATURE';
 
     public function __construct($parent) {
-      $this->hrflow = $parent;
+      $this->client = $parent;
       $this->handlers = [
-          HrflowEvents::PROFILE_PARSE_SUCCESS => null,
-          HrflowEvents::PROFILE_PARSE_ERROR   => null,
-          HrflowEvents::PROFILE_SCORE_SUCCESS => null,
-          HrflowEvents::PROFILE_SCORE_ERROR   => null,
-          HrflowEvents::JOB_TRAIN_SUCCESS     => null,
-          HrflowEvents::JOB_TRAIN_ERROR       => null,
-          HrflowEvents::JOB_TRAIN_START       => null,
-          HrflowEvents::JOB_SCORE_SUCCESS     => null,
-          HrflowEvents::JOB_SCORE_ERROR       => null,
-          HrflowEvents::JOB_SCORE_START       => null,
-          HrflowEvents::ACTION_STAGE_SUCCESS  => null,
-          HrflowEvents::ACTION_STAGE_ERROR    => null,
-          HrflowEvents::ACTION_RATING_SUCCESS => null,
-          HrflowEvents::ACTION_RATING_ERROR   => null
+          HrflowEvents::PROFILE_PARSING_SUCCESS     => null,
+          HrflowEvents::PROFILE_PARSING_ERROR       => null,
+          HrflowEvents::PROFILE_EMBEDDING_SUCCESS   => null,
+          HrflowEvents::PROFILE_EMBEDDING_ERROR     => null,
+          HrflowEvents::JOB_PARSING_SUCCESS         => null,
+          HrflowEvents::JOB_PARSING_ERROR           => null,
+          HrflowEvents::JOB_EMBEDDING_SUCCESS       => null,
+          HrflowEvents::JOB_EMBEDDING_ERROR         => null,
+          HrflowEvents::ACTION_STAGE_SUCCESS        => null,
+          HrflowEvents::ACTION_STAGE_ERROR          => null,
+          HrflowEvents::ACTION_RATING_SUCCESS       => null,
+          HrflowEvents::ACTION_RATING_ERROR         => null
       ];
     }
 
     public function check($url, $type) {
       $json = ['url' => $url, 'type' => $type] ;
-      $resp = $this->hrflow->_rest->postJson("webhook/check", $json);
+      $resp = $this->client->_rest->postJson("webhook/check", $json);
 
       return json_decode($resp->getBody(), true);
     }
 
     public function test() {
-      $resp = $this->hrflow->_rest->post("webhook/test");
+      $resp = $this->client->_rest->post("webhook/test");
 
       return json_decode($resp->getBody(), true);
     }
@@ -70,7 +68,7 @@
     }
 
     private function is_signature_valid($sign, $payload) {
-      $exp_sign = hash_hmac('sha256', $payload, $this->hrflow->webhookSecret, $raw=true);
+      $exp_sign = hash_hmac('sha256', $payload, $this->client->webhookSecret, $raw=true);
       return $sign === $exp_sign;
     }
 

@@ -56,16 +56,14 @@
 
     class HrflowEvents
     {
-      const PROFILE_PARSE_SUCCESS = 'profile.parse.success';
-      const PROFILE_PARSE_ERROR = 'profile.parse.error';
-      const PROFILE_SCORE_SUCCESS = 'profile.score.success';
-      const PROFILE_SCORE_ERROR = 'profile.score.error';
-      const JOB_TRAIN_SUCCESS = 'job.train.success';
-      const JOB_TRAIN_ERROR = 'job.train.error';
-      const JOB_TRAIN_START = 'job.train.start';
-      const JOB_SCORE_SUCCESS = 'job.score.success';
-      const JOB_SCORE_ERROR = 'job.score.error';
-      const JOB_SCORE_START = 'job.score.start';
+      const PROFILE_PARSING_SUCCESS = 'profile.parsing.success';
+      const PROFILE_PARSING_ERROR = 'profile.parsing.error';
+      const PROFILE_EMBEDDING_SUCCESS = 'profile.embedding.success';
+      const PROFILE_EMBEDDING_ERROR = 'profile.embedding.error';
+      const JOB_PARSING_SUCCESS = 'job.parsing.success';
+      const JOB_PARSING_ERROR = 'job.parsing.error';
+      const JOB_EMBEDDING_SUCCESS = 'job.embedding.success';
+      const JOB_EMBEDDING_ERROR = 'job.embedding.error';
       const ACTION_STAGE_SUCCESS = 'action.stage.success';
       const ACTION_STAGE_ERROR = 'action.stage.error';
       const ACTION_RATING_SUCCESS = 'action.rating.success';

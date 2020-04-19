@@ -2,30 +2,63 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ed7d642-74dd-4b68-a26f-64b9e284c556" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/test.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/job/JobEmbedding.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/job/JobParsing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/job/JobReasoning.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/job/JobScoring.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/job/JobSearching.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileAttachment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileEmbedding.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileFeedback.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileMetadata.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileParsing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileReasoning.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileRevealing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileScoring.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileSearching.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/profile/ProfileTag.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Job.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php-hrflow-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php-hrflow-api.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hrflow.php" beforeDir="false" afterPath="$PROJECT_DIR$/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/Client.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ressources/GuzzleWrapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/GuzzleWrapper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/HrflowApiException.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/HrflowApiException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/Job.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/Source.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/Source.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/Webhook.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/Webhook.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/HrflowJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/HrflowJobTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/HrflowProfileTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/HrflowProfileTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/HrflowSourceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/HrflowSourceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/HrflowWebhookTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/HrflowWebhookTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/test Job.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/HrflowConstant.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/HrflowConstant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/job/Job.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/JobIdent.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/job/JobIdent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/profile/Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/ProfileIdent.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/profile/ProfileIdent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/Source.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/source/Source.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/Webhook.php" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/webhook/Webhook.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test Job.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test/test Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/test Profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/test Source.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/test Source.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test Webhook.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/test Webhook.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/ClientInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/ClientInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/CurlMultiHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/CurlMultiHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/StreamHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/StreamHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/RedirectMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/RedirectMiddleware.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phpspec/prophecy/CHANGES.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpspec/prophecy/CHANGES.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phpspec/prophecy/src/Prophecy/PhpDocumentor/ClassTagRetriever.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpspec/prophecy/src/Prophecy/PhpDocumentor/ClassTagRetriever.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/log/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/LoggerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/LoggerInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/Test/LoggerInterfaceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/Test/LoggerInterfaceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/webmozart/assert/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/webmozart/assert/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/ci/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/webmozart/assert/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/src/Assert.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/webmozart/assert/src/Assert.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +111,9 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/version" />
       <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
       <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
     </include_path>
   </component>
   <component name="ProjectId" id="1Ya8DbvclIHVHDycgDubvDNWSjl" />
@@ -94,22 +130,29 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ressources/webhook" />
+      <recent name="$PROJECT_DIR$/ressources/source" />
+      <recent name="$PROJECT_DIR$/ressources/job" />
+      <recent name="$PROJECT_DIR$/ressources/profile" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/ressources/profile" />
+      <recent name="$PROJECT_DIR$/ressources/job" />
       <recent name="$PROJECT_DIR$/test" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.test Profile.php">
+  <component name="RunManager" selected="PHP Script.Job.php">
     <configuration name="test Job.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/php-hrflow-api/test/test Job.php" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="HrflowWebhookTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+    <configuration name="Job.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/test/Job.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
           <option name="interpreterName" value="PHP 7.2" />
         </PhpTestInterpreterSettings>
       </CommandLine>
-      <TestRunner class="HrflowWebhookTest" file="$PROJECT_DIR$/test/HrflowWebhookTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="test Profile.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/test/test Profile.php">
@@ -138,11 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHP Script.Job.php" />
         <item itemvalue="PHP Script.test Profile.php" />
+        <item itemvalue="JavaScript Debug.test Job.php" />
         <item itemvalue="PHP Script.test Source.php" />
         <item itemvalue="PHP Script.test Webhook.php" />
-        <item itemvalue="PHPUnit.HrflowWebhookTest" />
-        <item itemvalue="JavaScript Debug.test Job.php" />
       </list>
     </recent_temporary>
   </component>
@@ -169,7 +212,12 @@
       <option name="presentableId" value="Default" />
       <updated>1583169225662</updated>
       <workItem from="1583169227136" duration="37713000" />
-      <workItem from="1583343362084" duration="5911000" />
+      <workItem from="1583343362084" duration="13706000" />
+      <workItem from="1583949781928" duration="1797000" />
+      <workItem from="1584367991654" duration="599000" />
+      <workItem from="1584537011564" duration="15000" />
+      <workItem from="1584537041251" duration="459000" />
+      <workItem from="1587147411530" duration="11143000" />
     </task>
     <servers />
   </component>
@@ -194,6 +242,10 @@
     </state>
     <state x="620" y="188" width="751" height="755" key="#HrflowWebhookTest/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1583410551728" />
     <state x="2540" y="165" width="737" height="774" key="#HrflowWebhookTest/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1583409670963" />
+    <state x="667" y="234" width="642" height="637" key="#Job.php" timestamp="1587298105366">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="667" y="234" width="642" height="637" key="#Job.php/67.27.1853.1053@67.27.1853.1053" timestamp="1587298105366" />
     <state x="2162" y="27" width="559" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1583324363493">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -206,14 +258,16 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="634" y="220" width="642" height="637" key="#test.php/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1583331409269" />
-    <state x="634" y="220" width="642" height="637" key="#test_Job.php" timestamp="1583410981113">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state x="679" y="220" width="642" height="637" key="#test_Job.php" timestamp="1587297979116">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="634" y="220" width="642" height="637" key="#test_Job.php/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1583410981113" />
-    <state x="634" y="220" width="642" height="637" key="#test_Profile.php" timestamp="1583252418670">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state x="679" y="220" key="#test_Job.php/67.27.1853.1053@67.27.1853.1053" timestamp="1587297979116" />
+    <state x="679" y="220" width="642" height="637" key="#test_Profile.php" timestamp="1587298018081">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="634" y="220" width="642" height="637" key="#test_Profile.php/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1583252418670" />
+    <state x="679" y="220" key="#test_Profile.php/67.27.1853.1053@67.27.1853.1053" timestamp="1587298018081" />
     <state x="2554" y="198" width="642" height="637" key="#test_Source.php" timestamp="1583409695881">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -223,31 +277,44 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="634" y="220" width="642" height="637" key="#test_Webhook.php/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1583407020697" />
-    <state width="1874" height="296" key="GridCell.Tab.0.bottom" timestamp="1583410968714">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1587297976118">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1874" height="296" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1583410968714" />
-    <state width="1807" height="296" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1583409768626" />
-    <state width="1874" height="296" key="GridCell.Tab.0.center" timestamp="1583410968714">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1587297976118" />
+    <state width="1807" height="296" key="GridCell.Tab.0.bottom" timestamp="1587298472253">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1874" height="296" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1583410968714" />
-    <state width="1807" height="296" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1583409768626" />
-    <state width="1874" height="296" key="GridCell.Tab.0.left" timestamp="1583410968714">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state width="1874" height="296" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1583412179376" />
+    <state width="1807" height="296" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1583507535966" />
+    <state width="1807" height="296" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587298472253" />
+    <state width="1807" height="296" key="GridCell.Tab.0.center" timestamp="1587298472253">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1874" height="296" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1583410968714" />
-    <state width="1807" height="296" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1583409768625" />
-    <state width="1874" height="296" key="GridCell.Tab.0.right" timestamp="1583410968714">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state width="1874" height="296" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1583412179376" />
+    <state width="1807" height="296" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1583507535966" />
+    <state width="1807" height="296" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587298472253" />
+    <state width="1807" height="296" key="GridCell.Tab.0.left" timestamp="1587298472253">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1874" height="296" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1583410968714" />
-    <state width="1807" height="296" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1583409768626" />
-    <state x="789" y="493" width="389" height="149" key="NewPhpFileDialog" timestamp="1583331353136">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state width="1874" height="296" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1583412179376" />
+    <state width="1807" height="296" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1583507535965" />
+    <state width="1807" height="296" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587298472253" />
+    <state width="1807" height="296" key="GridCell.Tab.0.right" timestamp="1587298472253">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1874" height="296" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1583412179376" />
+    <state width="1807" height="296" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1583507535966" />
+    <state width="1807" height="296" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587298472253" />
+    <state x="640" y="366" width="697" height="373" key="NewPhpClassDialog" timestamp="1587147715816">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="640" y="366" width="697" height="373" key="NewPhpClassDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587147715816" />
+    <state x="828" y="493" width="399" height="149" key="NewPhpFileDialog" timestamp="1587298087558">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="789" y="493" width="389" height="149" key="NewPhpFileDialog/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1583331353136" />
     <state x="2709" y="478" width="399" height="149" key="NewPhpFileDialog/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1583241064479" />
+    <state x="828" y="493" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587298087558" />
     <state x="522" y="90" width="868" height="909" key="find.popup" timestamp="1583251460937">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>

@@ -2,7 +2,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 // Authentication to api
-$client = new Client('ask_cbe04b31bde4c51c6bf0d320d4b285c2');
+$client = new Client('ask_d6774338ad024297a8ac5431614513c1');
 
 // POST /profile
 $profile_data =[
@@ -51,30 +51,47 @@ $profile_data =[
     "metadatas" => [],
     "labels" => []
 ] ;
-$resp = $client->profile->json->add("4d62c1a3d97a03778b2c47db2604ebe903cf33d7", $profile_data, null, 1530607434) ;
+$resp = $client->profile->add_json("cf1d45723e6af357c6232e2e3b5e18e2ebefe5a7", $profile_data, null, 1530607434) ;
 var_dump($resp);
 
-// GET /profile/attachment
-$profiles = $client->profile->attachments->list("4d62c1a3d97a03778b2c47db2604ebe903cf33d7",new ProfileID("94ae5f125b85ca8398c015d1ec1900879e846494"));
+// GET /profile/attachments
+$profiles = $client->profile->attachment->list("a62ae2d5560fca7b34bb6c0c389a378f99bcdd52",new ProfileId("597b16789ba389cbc67a638d808b8f40220ba988"));
+var_dump($profiles);
+
+// GET /profile/tags
+$profiles = $client->profile->tag->list("a62ae2d5560fca7b34bb6c0c389a378f99bcdd52",new ProfileId("597b16789ba389cbc67a638d808b8f40220ba988"));
+var_dump($profiles);
+
+// GET /profile/metadatas
+$profiles = $client->profile->metadata->list("a62ae2d5560fca7b34bb6c0c389a378f99bcdd52",new ProfileId("597b16789ba389cbc67a638d808b8f40220ba988"));
 var_dump($profiles);
 
 // GET /profile/parsing
-$profiles = $client->profile->parsing->get("a55aeabef3dfeb917a2706b25b0acc4412ec1dfc",new ProfileID("15090b9e0fec8fe4c59edaebfae0b68ff260c29c"));
+$profiles = $client->profile->parsing->get("a62ae2d5560fca7b34bb6c0c389a378f99bcdd52",new ProfileId("597b16789ba389cbc67a638d808b8f40220ba988"));
 var_dump($profiles);
 
 // GET /profile/revealing
 
 // GET /profile/searching
-$profiles = $client->profile->list(["39b9bdb43f044ca12f04dffc8fe9ff3bd246e040"]);
+$profiles = $client->profile->searching->get(["a62ae2d5560fca7b34bb6c0c389a378f99bcdd52"]);
 var_dump($profiles);
 
 // GET profiles/scoring
-$profiles = $client->profile->scoring->list(["4a2ef05c101ff910354971dd2aa5a01a57a67815"], new JobID("5f9f853a87463b52ca7a387f69fc8eef9803a056"), $stage = "yes");
+$profiles = $client->profile->scoring->get(["a62ae2d5560fca7b34bb6c0c389a378f99bcdd52"], new JobID("a25bc879e774cc508706f6f4ddd8cce036689f3a"), $stage = "new");
 var_dump($profiles);
+//
+//// GET /profile/reasoning
+//
+//// GET /profile/embedding
+$profiles = $client->profile->embedding->get('a62ae2d5560fca7b34bb6c0c389a378f99bcdd52',
+    new ProfileId("597b16789ba389cbc67a638d808b8f40220ba988"), ['skills'=>1]);
+var_dump($profiles);
+//
+//// GET /profile/action
+////$profiles = $client->profile->feedback->set(new ProfileID("04a25bb3c5af61fcdfa3d67dd9b3b4bd0e6762f0"), new JobID("9e576e1b4da62eaece96cfe247cae6eac73dc1b0"), "yes");
+////var_dump($profiles);
 
-// GET /profile/reasoning
 
-// GET /profile/embedding
 
 
 

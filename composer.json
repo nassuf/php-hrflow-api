@@ -19,7 +19,7 @@
     ],
     "minimum-stability": "stable",
     "autoload": {
-      "files": ["Client.php", "ressources/HrflowConstant.php", "ressources/ProfileIdent.php", "ressources/JobIdent.php"]
+      "files": ["Client.php", "ressources/HrflowConstant.php", "ressources/profile/ProfileIdent.php", "ressources/job/JobIdent.php"]
     },
     "require-dev": {
         "phpunit/phpunit": "^7"

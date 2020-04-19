@@ -33,7 +33,7 @@
     {
         $endpoint = $this->base_url.$endpoint;
         $patchLambda = function () use ($endpoint, $payload) {
-          return $this->guzzleClient->patch($endpoint, ['form_params' => $payload]);
+          return $this->guzzleClient->patch($endpoint, ['json' => $payload]);
         };
         return ReqExpHandler::exec($patchLambda);
     }

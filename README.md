@@ -95,7 +95,7 @@ $client->profile->scoring->get(array $source_ids, $job_id=null, $stage=null, $us
   ```
   * Add a json to a sourced id :
   ```php
-  $client->profile->add_json($source_id, $$profile_data, $profile_reference, $timestamp_reception, $profile_labels=[], $profile_tags=[], $profile_metadatas=[]);
+  $client->profile->add_json($source_id, $profile_data, $profile_reference, $timestamp_reception, $profile_labels=[], $profile_tags=[], $profile_metadatas=[]);
   ```
    `$$profile_data` is an array like this:
   ```php

@@ -12,7 +12,7 @@ composer require hrflow/hrflow-php-api
 
 To authenticate against the api, get your API SECRET KEY from your hrflow
 dashboard:
-![findApiSecret](pictures/secretLocation.png)
+![findApiSecret](secretLocation.png)
 
 Then create a new `Hrflow` object with this key:
 ```php

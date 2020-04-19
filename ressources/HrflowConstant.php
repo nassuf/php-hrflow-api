@@ -1,15 +1,8 @@
 <?php
 
-    class HrflowSeniority
-    {
-      const SENIOR = 'senior';
-      const JUNIOR = 'junior';
-      const ALL    = 'all';
-    }
 
     class HrflowStage
     {
-      const ALL   = null;
       const NEW   = 'NEW';
       const YES   = 'YES';
       const LATER = 'LATER';
@@ -18,8 +11,12 @@
 
     class HrflowSortBy
     {
-      const RECEPTION = 'reception';
-      const RANKING   = 'ranking';
+      const DATE_RECEPTION = 'date_reception';
+      const LOCATION   = 'location';
+      const LOCATION_EXPERIENCE   = 'location_experience';
+      const LOCATION_EDUCATION   = 'location_education';
+      const SEMANTIC_SCORE   = 'semantic_score';
+      const PREDICTIVE_SCORE   = 'predictive_score';
     }
 
     class HrflowOrderBy
@@ -28,31 +25,79 @@
       const ASC  = 'asc';
     }
 
-    class HrflowField
+    class HrflowSearchingFields
     {
-      const SOURCE_IDS       = 'source_ids';
-      const SENIORITY        = 'seniority';
-      const JOB_ID           = 'job_id';
-      const JOB_REFERENCE    = 'job_reference';
-      const STAGE            = 'stage';
-      const RATING           = 'rating';
-      const DATE_START       = 'date_start';
-      const DATE_END         = 'date_end';
-      const PAGE             = 'page';
-      const LIMIT            = 'limit';
-      const SORT_BY          = 'sort_by';
-      const ORDER_BY         = 'order_by';
+      const SOURCE_IDS           = 'source_ids';
+      const NAME                 = 'name';
+      const EMAIL                = 'email';
+      const LOCATION_GEOPOINT    = 'location_geopoint';
+      const LOCATION_DISTANCE    = 'location_distance';
+      const SUMMARY_KEYWORDS     = 'summary_keywords';
+      const TEXT_KEYWORDS        = 'text_keywords';
+
+      const EXPERIENCE_KEYWORDS             = 'experience_keywords';
+      const EXPERIENCE_LOCATION_GEOPOINT    = 'experience_location_geopoint';
+      const EXPERIENCE_LOCATION_DISTANCE    = 'experience_location_distance';
+      const EXPERIENCE_DURATION_MIN         = 'experiences_duration_min';
+      const EXPERIENCE_DURATION_MAX         = 'experiences_duration_max';
+
+      const EDUCATION_KEYWORDS            = 'education_keywords';
+      const EDUCATION_LOCATION_GEOPOINT   = 'education_location_geopoint';
+      const EDUCATION_LOCATION_DISTANCE   = 'education_location_distance';
+      const EDUCATION_DURATION_MIN        = 'educations_duration_min';
+      const EDUCATION_DURATION_MAX        = 'educations_duration_max';
+
+      const SKILLS_DICT       = 'skills_dict';
+      const LANGUAGES_DICT    = 'languages_dict';
+      const INTERESTES_DICT   = 'interests_dict';
+      const LABELS_DICT       = 'labels_dict';
+
+      const DATE_START     = 'date_start';
+      const DATE_END       = 'date_end';
+      const PAGE           = 'page';
+      const LIMIT          = 'limit';
+      const SORT_BY        = 'sort_by';
+      const ORDER_BY       = 'order_by';
     }
 
-    class HrflowTrainingMetaData
-    {
-      const JOB_ID           = 'job_id';
-      const JOB_REFERENCE    = 'job_reference';
-      const STAGE            = 'stage';
-      const STAGE_TIMESTAMP  = 'stage_timestamp';
-      const RATING           = 'rating';
-      const RATING_TIMESTAMP = 'rating_timestamp';
-    }
+
+class HrflowScoringFields
+{
+    const SOURCE_IDS           = 'source_ids';
+    const JOB_ID               = 'job_id';
+    const STAGE                = 'stage';
+    const USE_AGENT            = 'use_agent';
+    const NAME                 = 'name';
+    const EMAIL                = 'email';
+    const LOCATION_GEOPOINT    = 'location_geopoint';
+    const LOCATION_DISTANCE    = 'location_distance';
+    const SUMMARY_KEYWORDS     = 'summary_keywords';
+    const TEXT_KEYWORDS        = 'text_keywords';
+
+    const EXPERIENCE_KEYWORDS             = 'experience_keywords';
+    const EXPERIENCE_LOCATION_GEOPOINT    = 'experience_location_geopoint';
+    const EXPERIENCE_LOCATION_DISTANCE    = 'experience_location_distance';
+    const EXPERIENCE_DURATION_MIN         = 'experiences_duration_min';
+    const EXPERIENCE_DURATION_MAX         = 'experiences_duration_max';
+
+    const EDUCATION_KEYWORDS            = 'education_keywords';
+    const EDUCATION_LOCATION_GEOPOINT   = 'education_location_geopoint';
+    const EDUCATION_LOCATION_DISTANCE   = 'education_location_distance';
+    const EDUCATION_DURATION_MIN        = 'educations_duration_min';
+    const EDUCATION_DURATION_MAX        = 'educations_duration_max';
+
+    const SKILLS_DICT       = 'skills_dict';
+    const LANGUAGES_DICT    = 'languages_dict';
+    const INTERESTES_DICT   = 'interests_dict';
+    const LABELS_DICT       = 'labels_dict';
+
+    const DATE_START     = 'date_start';
+    const DATE_END       = 'date_end';
+    const PAGE           = 'page';
+    const LIMIT          = 'limit';
+    const SORT_BY        = 'sort_by';
+    const ORDER_BY       = 'order_by';
+}
 
     class HrflowEvents
     {

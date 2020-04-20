@@ -87,6 +87,32 @@ require_once __DIR__ . '/ProfileReasoning.php';
       return json_decode($resp->getBody(), true)['data'];
     }
 
+    public function add_folder(string $source_id, string $dir_path, bool $recurs=false, $timestamp_reception=null, $sync_parsing=0)
+    {
+      if (!is_dir($dir_path)) {
+        throw new \HrflowApiArgumentException("'".$dir_path."' is not a directory.", 1);
+      }
+      $files_path = self::getFileToSend($dir_path, $recurs);
+      $failed_files = [];
+      $succeed_files = [];
+
+      foreach ($files_path as $file_path) {
+        try {
+          $profile_content = fopen($file_path, "rb");
+          $resp = self::add_file($source_id, $profile_content, null, null, $timestamp_reception, [], [], [], $sync_parsing);
+          $succeed_files[$file_path] = $resp;
+        } catch (\Exception $e) {
+          $failed_files[$file_path] = $e;
+        }
+      }
+      // If at least a file failed there is an exp,
+      // the exp contains list of suceed file too
+      if (!empty($failed_files)) {
+        throw new \HrflowApiProfileUploadException($failed_files, $succeed_files);
+      }
+      return $succeed_files;
+    }
+
     private static function join_2_path($a, $b) {
       $res = $a;
       if ($a[strlen($a) - 1] != '/' && $b[0] != '/'){
@@ -133,31 +159,6 @@ require_once __DIR__ . '/ProfileReasoning.php';
       if (!array_key_exists($key, $query)) {
         throw new \HrflowApiArgumentException($key." is absent and mandatory from query.", 1);
       }
-    }
-
-
-    public function add_folder(string $source_id, string $dir_path, bool $recurs=false, $reception_date=null, $training_metadata=null) {
-      if (!is_dir($dir_path)) {
-        throw new \HrflowApiArgumentException("'".$dir_path."' is not a directory.", 1);
-      }
-      $files_path = self::getFileToSend($dir_path, $recurs);
-      $failed_files = [];
-      $succeed_files = [];
-
-      foreach ($files_path as $file_path) {
-        try {
-          $resp = self::add($source_id, $file_path, null, $reception_date, $training_metadata);
-          $succeed_files[$file_path] = $resp;
-        } catch (\Exception $e) {
-          $failed_files[$file_path] = $e;
-        }
-      }
-      // If at least a file failed there is an exp,
-      // the exp contains list of suceed file too
-      if (!empty($failed_files)) {
-        throw new \HrflowApiProfileUploadException($failed_files, $succeed_files);
-      }
-      return $succeed_files;
     }
 
   }

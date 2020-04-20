@@ -101,7 +101,7 @@ It's works the same way as profile.
     $client->profile->add_json($source_id, $profile_data, $profile_reference, $timestamp_reception, $profile_labels=[], $profile_tags=[], $profile_metadatas=[]);
     ```
   `$profile_data` is an array like this:
-    ```php
+    ```
     $profileData = {
     "name"    => "Harry Potter",
     "email"   => "harry.potter@gmail.com",

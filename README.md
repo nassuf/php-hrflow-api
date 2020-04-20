@@ -72,10 +72,10 @@ It's works the same way as profile.
   $job = $client->job->parsing->get(new JobID("399329b780feda71db57957d24ec9ee87d3b55a9"));
   ```
 * # Profiles
-  * Retrieve the profiles information associated with some source ids :
-  ```php
+* Retrieve the profiles information associated with some source ids :
+```php
   
-  $profiles = $client->profile->searching->get(array $source_ids, $name=null, $email=null, $location_geopoint=[], $location_distance=null, $summary_keywords=[], $text_keywords=[],
+$profiles = $client->profile->searching->get(array $source_ids, $name=null, $email=null, $location_geopoint=[], $location_distance=null, $summary_keywords=[], $text_keywords=[],
                       $experience_keywords=[], $experience_location_geopoint=[], $experience_location_distance=null, $experiences_duration_min=null, $experiences_duration_max=null,
                       $education_keywords=[], $education_location_geopoint=[], $education_location_distance=null, $educations_duration_min=null, $educations_duration_max=null,
                       $skills_dict=[], $languages_dict=[], $interests_dict=null, $labels_dict=null,

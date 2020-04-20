@@ -15,7 +15,7 @@
             "email": "dev@hrflow.net"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "autoload": {
       "files": ["Client.php", "ressources/HrflowConstant.php", "ressources/profile/ProfileIdent.php", "ressources/job/JobIdent.php"]
     },

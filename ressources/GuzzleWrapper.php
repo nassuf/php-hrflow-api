@@ -56,15 +56,14 @@
       return ReqExpHandler::exec($postLambda);
     }
 
-    public function postFile($endpoint, $payload, $file)
+    public function postFile($endpoint, $payload, $content)
     {
         $endpoint = $this->base_url.$endpoint;
         $multipart = [
           'multipart' => [
             [
               'name' => 'file',
-              'contents' => fopen($file, 'r'),
-              'filename' => basename($file)
+              'contents' => $content
             ]
           ]
         ];

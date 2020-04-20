@@ -58,6 +58,35 @@ require_once __DIR__ . '/ProfileReasoning.php';
       return json_decode($resp->getBody(), true);
     }
 
+    public function add_file(string $source_id, $profile_file, $profile_content_type=null, $profile_reference=null, $timestamp_reception=null,
+                             $profile_labels=[], $profile_tags=[], $profile_metadatas=[], $sync_parsing=0)
+    {
+
+      // ensure that profile reference is a string
+      // cause it can be a ProfileReference object or a string
+      $profile_reference = ValueFormater::ident_to_string($profile_reference);
+
+      $payload = [
+          'source_id'           => $source_id,
+          'profile_type'        => 'file',
+          'profile_content_type'=> $profile_content_type,
+          'profile_reference'   => $profile_reference,
+          'profile_labels'      => json_encode($profile_labels),
+          'profile_tags'        => json_encode($profile_tags),
+          'profile_metadatas'   => json_encode($profile_metadatas),
+          'sync_parsing'        => $sync_parsing
+
+      ];
+
+      if (array_key_exists('timestamp_reception', $payload)){
+        $payload['timestamp_reception'] =  ValueFormater::format_dateToTimestamp($timestamp_reception, 'reception_date');
+      }
+
+
+      $resp = $this->client->_rest->postFile("profile", $payload, $profile_file);
+      return json_decode($resp->getBody(), true)['data'];
+    }
+
     private static function join_2_path($a, $b) {
       $res = $a;
       if ($a[strlen($a) - 1] != '/' && $b[0] != '/'){
@@ -106,27 +135,6 @@ require_once __DIR__ . '/ProfileReasoning.php';
       }
     }
 
-
-    public function add_file(string $source_id, string $file_path, $profile_reference=null, $reception_date=null, $training_metadata=null) {
-
-      // ensure that profile reference is a string
-      // cause it can be a ProfileReference object or a string
-      $profile_reference = ValueFormater::ident_to_string($profile_reference);
-      $trainingMetadata = ValueFormater::format_trainingMetadata($training_metadata);
-
-      $payload = array (
-        'source_id'           => $source_id
-      );
-      RequestBodyUtils::add_if_not_null($payload, 'training_metadata', $training_metadata);
-      RequestBodyUtils::add_if_not_null($payload, 'profile_reference', $profile_reference);
-      RequestBodyUtils::add_if_not_null($payload, 'timestamp_reception', $reception_date);
-      if (array_key_exists('timestamp_reception', $payload)){
-        $payload['timestamp_reception'] =  ValueFormater::format_dateToTimestamp($reception_date, 'reception_date');
-      }
-
-      $resp = $this->client->_rest->postFile("profile", $payload, $file_path);
-      return json_decode($resp->getBody(), true)['data'];
-    }
 
     public function add_folder(string $source_id, string $dir_path, bool $recurs=false, $reception_date=null, $training_metadata=null) {
       if (!is_dir($dir_path)) {

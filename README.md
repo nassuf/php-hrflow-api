@@ -101,8 +101,9 @@ It's works the same way as profile.
     $client->profile->add_json($source_id, $profile_data, $profile_reference, $timestamp_reception, $profile_labels=[], $profile_tags=[], $profile_metadatas=[]);
     ```
   `$profile_data` is an array like this:
-    ```
-    $profileData = {
+  
+    ```php
+    $profile_data = {
     "name"    => "Harry Potter",
     "email"   => "harry.potter@gmail.com",
     "address" => "1 rue streeling",
@@ -142,7 +143,7 @@ It's works the same way as profile.
     "tags"        => [],
     "metadatas"   => [],
     "labels"      => ["stage":"yes","job_id":"job_id"]
-  } ;
+    } ;
     ```
   * Add all resume from a directory to a sourced id, use `$recurs` to enable recursive mode :
     ```php

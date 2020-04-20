@@ -1,7 +1,6 @@
 {
     "name": "hrflow/hrflow-php-api",
     "description": "An api client for hrflow",
-    "version": "1.3.0",
     "license": "MIT",
     "type": "library",
     "require": {

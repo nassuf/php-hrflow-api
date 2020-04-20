@@ -81,13 +81,14 @@ It's works the same way as profile.
                         $date_start="1494539999", $date_end=null, $page=1, $limit=30, $sort_by='date_reception', $order_by='asc');
     ```
   * Retrieve list of profile'score for given job :
-    ```php
+      ```php
     $client->profile->scoring->get(array $source_ids, $job_id=null, $stage=null, $use_agent=null, $name=null, $email=null, $location_geopoint=[], $location_distance=null, $summary_keywords=[], $text_keywords=[],
                           $experience_keywords=[], $experience_location_geopoint=[], $experience_location_distance=null, $experiences_duration_min=null, $experiences_duration_max=null,
                           $education_keywords=[], $education_location_geopoint=[], $education_location_distance=null, $educations_duration_min=null, $educations_duration_max=null,
                           $skills_dict=[], $languages_dict=[], $interests_dict=null, $labels_dict=null,
                           $date_start="1494539999", $date_end=null, $page=1, $limit=30, $sort_by='date_reception', $order_by='asc');
-   ```
+    ```
+
   * Add a resume to a sourced id :
     ```php
     $client->profile->add_file(string $source_id, $profile_file, $profile_content_type=null, $profile_reference=null, $timestamp_reception=null, $profile_labels=[], $profile_tags=[], $profile_metadatas=[], $sync_parsing=0);
@@ -173,7 +174,7 @@ It's works the same way as profile.
       ```php
       $client->profile->revealing->get($profile_ident, $job_ident, $source_id);
       ```
-* # Sources
+# Sources
   * Get all sources for given team account:
     ```php
     $client->source->list('python', 1, 1);
@@ -182,7 +183,7 @@ It's works the same way as profile.
      ```php
      $client->source->get($source_id);
      ```
-* # webhooks
+# webhooks
 This package supplies webhooks support as well.
   * Check for webhooks integration:
     ```php
@@ -226,12 +227,12 @@ This package supplies webhooks support as well.
       // Handle the webhook
   	$client->webhooks->handle($encoded_header);
     ```
-* # Constants
+# Constants
   * `HrflowFields` Contains to fill profile's `args` array for /profiles constants.
   * `HrflowSortBy`  Contains sorting options constants.
   * `HrflowOrderBy`  Contains order options constants.
   * `HrflowEvents` Constains event name for webhooks
-* # Exception
+# Exception
   * `HrflowApiException` parent of all thrown exception. Thrown when an error occurs.
   * `HrflowApiResponseException` thrown when response http code is not a valid one.
     * `getHttpCode()` to get the http code of the response.

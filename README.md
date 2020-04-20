@@ -91,13 +91,16 @@ $client->profile->scoring->get(array $source_ids, $job_id=null, $stage=null, $us
  ```
   * Add a resume to a sourced id :
   ```php
-  $client->profile->add_file($source_id, $file_path, $profile_reference, $timestamp_reception, $profile_labels=[], $profile_tags=[], $profile_metadatas=[]);
+  $client->profile->add_file(string $source_id, $profile_file, $profile_content_type=null, $profile_reference=null, $timestamp_reception=null, $profile_labels=[], $profile_tags=[], $profile_metadatas=[], $sync_parsing=0);
   ```
+  `$profile_file` is a binary: $profile_file = fopen("/path/2/file", "rb");
+
+  
   * Add a json to a sourced id :
   ```php
   $client->profile->add_json($source_id, $profile_data, $profile_reference, $timestamp_reception, $profile_labels=[], $profile_tags=[], $profile_metadatas=[]);
   ```
-   `$$profile_data` is an array like this:
+   `$profile_data` is an array like this:
   ```php
   $profileData = [
     "name" => "Hari Seldon",

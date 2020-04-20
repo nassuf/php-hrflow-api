@@ -139,7 +139,7 @@ $client->profile->scoring->get(array $source_ids, $job_id=null, $stage=null, $us
     ]
     ],
     "skills" => ["manual skill", "Creative spirit", "Writing skills", "Communication", "Project management", "French"],
-    "languages" => ["arab"],
+    "languages" => ["arabic"],
     "interests" => ["football"],
     "tags" => [],
     "metadatas" => [],

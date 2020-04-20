@@ -61,7 +61,7 @@ It's works the same way as profile.
 ## Methods & Resources
   `*_id` and `*_reference` are marked as `*_ident` for simplicity.
 
-* # jobs
+# jobs
   * Get all job for given team account :
   ```php
   $jobs = $client->job->searching->get();
@@ -71,19 +71,19 @@ It's works the same way as profile.
   ```php
   $job = $client->job->parsing->get(new JobID("399329b780feda71db57957d24ec9ee87d3b55a9"));
   ```
-* # Profiles
-* Retrieve the profiles information associated with some source ids :
-```php
+# Profiles
+  * Retrieve the profiles information associated with some source ids :
+  ```php
   
-$profiles = $client->profile->searching->get(array $source_ids, $name=null, $email=null, $location_geopoint=[], $location_distance=null, $summary_keywords=[], $text_keywords=[],
+  $profiles = $client->profile->searching->get(array $source_ids, $name=null, $email=null, $location_geopoint=[], $location_distance=null, $summary_keywords=[], $text_keywords=[],
                       $experience_keywords=[], $experience_location_geopoint=[], $experience_location_distance=null, $experiences_duration_min=null, $experiences_duration_max=null,
                       $education_keywords=[], $education_location_geopoint=[], $education_location_distance=null, $educations_duration_min=null, $educations_duration_max=null,
                       $skills_dict=[], $languages_dict=[], $interests_dict=null, $labels_dict=null,
                       $date_start="1494539999", $date_end=null, $page=1, $limit=30, $sort_by='date_reception', $order_by='asc');
   ```
-* Retrieve list of profile'score for given job :
-```php
-$client->profile->scoring->get(array $source_ids, $job_id=null, $stage=null, $use_agent=null, $name=null, $email=null, $location_geopoint=[], $location_distance=null, $summary_keywords=[], $text_keywords=[],
+  * Retrieve list of profile'score for given job :
+  ```php
+  $client->profile->scoring->get(array $source_ids, $job_id=null, $stage=null, $use_agent=null, $name=null, $email=null, $location_geopoint=[], $location_distance=null, $summary_keywords=[], $text_keywords=[],
                         $experience_keywords=[], $experience_location_geopoint=[], $experience_location_distance=null, $experiences_duration_min=null, $experiences_duration_max=null,
                         $education_keywords=[], $education_location_geopoint=[], $education_location_distance=null, $educations_duration_min=null, $educations_duration_max=null,
                         $skills_dict=[], $languages_dict=[], $interests_dict=null, $labels_dict=null,
@@ -100,58 +100,53 @@ $client->profile->scoring->get(array $source_ids, $job_id=null, $stage=null, $us
   ```php
   $client->profile->add_json($source_id, $profile_data, $profile_reference, $timestamp_reception, $profile_labels=[], $profile_tags=[], $profile_metadatas=[]);
   ```
-   `$profile_data` is an array like this:
+  `$profile_data` is an array like this:
   ```php
-  $profileData = [
-    "name" => "Hari Seldon",
-    "email"=> "harisledon@trantor.trt",
-    "address" => "1 rue streeling",
-    "info" => [
-        "name" => "name info",
-        "email" => "tata",
-        "phone" => "0202",
-        "location" => "somewhere",
-        "urls" => [
-            "from_resume" => [],
-            "linkedin" => "",
-            "twitter" => "",
-            "facebook" => "",
-            "github" => "",
-            "picture" => ""],
-        "location"=> [
-            "text"=>""]],
-    "summary" => "test summary",
-    "experiences" => [[
-        "start" => "15/02/12600",
-        "end" => "",
-        "title" => "Lead",
-        "company" => "Departement de la psychohistoire",
-        "location" => [
-            "text" => "Trator"],
-        "description" => "Developping psychohistoire."
-    ]
-    ],
-    "educations" => [[
-        "start" => "12540",
-        "end" => "12550",
-        "title" => "Diplome d'ingénieur mathematicien",
-        "school" => "Université de Hélicon",
-        "description" => "Etude des mathematique",
-        "location" => [
-            "text" => "Hélicon"]
-    ]
-    ],
-    "skills" => ["manual skill", "Creative spirit", "Writing skills", "Communication", "Project management", "French"],
-    "languages" => ["arabic"],
-    "interests" => ["football"],
-    "tags" => [],
-    "metadatas" => [],
-    "labels" => []
-    ] ;
+  $profileData = {
+  "name"    => "Harry Potter",
+  "email"   => "harry.potter@gmail.com",
+  "address" => "1 rue streeling",
+  "info"    => {
+      "name"     => "Harry Potter",
+      "email"    => "harry.potter@gmail.com",
+      "phone"    => "0202",
+      "location" => "somewhere",
+      "urls"     => {
+          "from_resume" => [],
+          "linkedin"    => "",
+          "twitter"     => "",
+          "facebook"    => "",
+          "github"      => "",
+          "picture"     => ""},
+      "location"        => {"text" => ""}},
+  "summary"     => "test summary",
+  "experiences" => [{
+      "start"       => "15/02/1900",
+      "end"         => "",
+      "title"       => "Lead",
+      "company"     => "Mathematic Departement",
+      "location"    => {"text" => "Paris"},
+      "description" => "Developping."
+      }],
+  "educations" => [{
+      "start"       => "12540",
+      "end"         => "12550",
+      "title"       => "Mathematicien",
+      "school"      => "University",
+      "description" => "Description",
+      "location"    => {"text" => "Scotland"}
+  }],
+  "skills"      => ["manual skill", "Creative spirit", "Writing skills", "Communication"],
+  "languages"   => ["english"],
+  "interests"   => ["football"],
+  "tags"        => [],
+  "metadatas"   => [],
+  "labels"      => ["stage":"yes","job_id":"job_id"]
+} ;
   ```
   * Add all resume from a directory to a sourced id, use `$recurs` to enable recursive mode :
   ```php
-  $client->profile->addList($source_id, $file_path, $is_recurs, $timestamp_reception);
+  add_folder(string $source_id, string $dir_path, bool $recurs=false, $timestamp_reception=null, $sync_parsing=0)
   ```
   It returns an array like: `result[filename] = server_reponse`.
   Can throw `HrflowApiProfileUploadException`

@@ -50,9 +50,9 @@ $profile_id = new ProfileID('102b6aa635fnf8ar70e7888ee63c0jde0c753dtg');
 $profile_reference = new ProfileReference('reference01');
 $source_id = '34566aa635fnrtar70e7568ee6345jde0c75ert4';
 // This:
-$client->profile->get($profile_id, $source_id);
+$client->profile->parsing->get($profile_id, $source_id);
 // Works as much as:
-$client->profile->get($profile_reference, $source_id);
+$client->profile->parsing->get($profile_reference, $source_id);
 ```
 
 # Job the ID or the reference
@@ -74,26 +74,30 @@ It's works the same way as profile.
 * # Profiles
   * Retrieve the profiles information associated with some source ids :
   ```php
-  $start = new DateTime('2017-01-02');
-  $end = new DateTime();
-  $args = [
-      HrflowField::SOURCE_IDS => ['34566aa635fnrtar70e7568ee6345jde0c75ert4'],
-      HrflowField::DATE_START => $start->getTimestamp(),
-      HrflowField::DATE_END => $end->getTimestamp(),
-      HrflowField::SORT_BY => HrflowSortBy::RANKING,
-      HrflowField::FILTER_REFERENCE => 'reference01'
-  ];
-  $profiles = $client->profile->searching->get(["a62ae2d5560fca7b34bb6c0c389a378f99bcdd52"]);
+  
+  $profiles = $client->profile->searching->get(array $source_ids, $name=null, $email=null, $location_geopoint=[], $location_distance=null, $summary_keywords=[], $text_keywords=[],
+                      $experience_keywords=[], $experience_location_geopoint=[], $experience_location_distance=null, $experiences_duration_min=null, $experiences_duration_max=null,
+                      $education_keywords=[], $education_location_geopoint=[], $education_location_distance=null, $educations_duration_min=null, $educations_duration_max=null,
+                      $skills_dict=[], $languages_dict=[], $interests_dict=null, $labels_dict=null,
+                      $date_start="1494539999", $date_end=null, $page=1, $limit=30, $sort_by='date_reception', $order_by='asc');
   ```
+* Retrieve list of profile'score for given job :
+```php
+$client->profile->scoring->get(array $source_ids, $job_id=null, $stage=null, $use_agent=null, $name=null, $email=null, $location_geopoint=[], $location_distance=null, $summary_keywords=[], $text_keywords=[],
+                        $experience_keywords=[], $experience_location_geopoint=[], $experience_location_distance=null, $experiences_duration_min=null, $experiences_duration_max=null,
+                        $education_keywords=[], $education_location_geopoint=[], $education_location_distance=null, $educations_duration_min=null, $educations_duration_max=null,
+                        $skills_dict=[], $languages_dict=[], $interests_dict=null, $labels_dict=null,
+                        $date_start="1494539999", $date_end=null, $page=1, $limit=30, $sort_by='date_reception', $order_by='asc');
+ ```
   * Add a resume to a sourced id :
   ```php
-  $client->profile->add_file($source_id, $file_path, $profile_reference, $timestamp_reception);
+  $client->profile->add_file($source_id, $file_path, $profile_reference, $timestamp_reception, $profile_labels=[], $profile_tags=[], $profile_metadatas=[]);
   ```
   * Add a json to a sourced id :
   ```php
-  $client->profile->add_json($source_id, $profileData, $profile_reference, $timestamp_reception);
+  $client->profile->add_json($source_id, $profile_data, $profile_reference, $timestamp_reception, $profile_labels=[], $profile_tags=[], $profile_metadatas=[]);
   ```
-   `$profileData` is an array like this:
+   `$$profile_data` is an array like this:
   ```php
   $profileData = [
     "name" => "Hari Seldon",
@@ -135,7 +139,7 @@ It's works the same way as profile.
     ]
     ],
     "skills" => ["manual skill", "Creative spirit", "Writing skills", "Communication", "Project management", "French"],
-    "languages" => ["arab"],
+    "languages" => ["arabic"],
     "interests" => ["football"],
     "tags" => [],
     "metadatas" => [],
@@ -167,10 +171,6 @@ It's works the same way as profile.
   * Retrieve the profile parsing data associated with both profile id and source id :
    ```php
    $client->profile->parsing->get($profile_ident, $source_ident);
-   ```
-  * Retrieve the profile scoring data associated with both profile id and source id :
-   ```php
-   $client->profile->scoring->get($profile_ident, $source_id);
    ```
   * Reveal the profile interpretability data associated with both profile id and source id related with the filter :
     ```php

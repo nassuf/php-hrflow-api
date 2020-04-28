@@ -15,13 +15,13 @@ class ProfileEmbedding
 
 
   public function get($source_id, HrflowProfileIdent $profile_ident, $fields=[]) {
-    $query = ['source_id' => $source_id];
+    $params = ['source_id' => $source_id];
 
     if($fields){
-      $query['fields'] = json_encode($fields) ;
+      $params['fields'] = json_encode($fields) ;
     }
-    $profile_ident->addToArray($query);
-    $resp = $this->client->_rest->get("profile/embedding", $query);
+    $profile_ident->addToArray($params);
+    $resp = $this->client->_rest->get("profile/embedding", $params);
 
     return json_decode($resp->getBody(), true);
   }

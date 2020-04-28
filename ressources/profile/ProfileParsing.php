@@ -14,11 +14,11 @@ require_once  __DIR__.'/../ValueFormater.php';
     }
 
     public function get(string $source_id, HrflowProfileIdent $profile_ident) {
-      $query = array(
+      $params = [
         'source_id'  => $source_id
-      );
-      $profile_ident->addToArray($query);
-      $resp = $this->client->_rest->get("profile/parsing", $query);
+      ];
+      $profile_ident->addToArray($params);
+      $resp = $this->client->_rest->get("profile/parsing", $params);
 
       return json_decode($resp->getBody(), true)['data'];
     }

@@ -13,12 +13,12 @@ class ProfileTag
   }
 
   public function list($source_id, HrflowProfileIdent $profile_ident) {
-    $query_param = [
+    $params = [
         'source_id'   => $source_id
     ];
-    $profile_ident->addToArray($query_param);
+    $profile_ident->addToArray($params);
 
-    $resp = $this->client->_rest->get("profile/tags", $query_param);
+    $resp = $this->client->_rest->get("profile/tags", $params);
 
     return json_decode($resp->getBody(), true)['data'];
   }

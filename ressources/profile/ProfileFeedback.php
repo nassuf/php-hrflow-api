@@ -13,13 +13,13 @@ class ProfileFeedback
   }
 
   public function set(HrflowProfileIdent $profile_ident, HrflowJobIdent $job_ident, string $stage=null, int $rating=null) {
-    $payload = array(
+    $data = array(
         'stage'       => $stage,
         'rating'   => $rating,
     );
-    $profile_ident->addToArray($payload);
-    $job_ident->addToArray($payload);
-    $resp = $this->hrflow->_rest->patch("profile/action", $payload);
+    $profile_ident->addToArray($data);
+    $job_ident->addToArray($data);
+    $resp = $this->hrflow->_rest->patch("profile/action", $data);
 
     return json_decode($resp->getBody(), true)['data'];
   }

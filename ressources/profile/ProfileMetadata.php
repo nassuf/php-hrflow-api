@@ -13,11 +13,11 @@ class ProfileMetadata
   }
 
   public function list(string $source_id, HrflowProfileIdent $profile_ident) {
-    $query = array(
+    $params = [
         'source_id'  => $source_id
-    );
-    $profile_ident->addToArray($query);
-    $resp = $this->client->_rest->get("profile/metadatas", $query);
+    ];
+    $profile_ident->addToArray($params);
+    $resp = $this->client->_rest->get("profile/metadatas", $params);
 
     return json_decode($resp->getBody(), true);
   }

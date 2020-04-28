@@ -13,9 +13,9 @@ class JobParsing
     $this->client = $parent;
   }
   public function get(HrflowJobIdent $job_ident, string $job_reference=null) {
-    $query = [] ;
-    $job_ident->addToArray($query);
-    $resp = $this->client->_rest->get("job/parsing", $query);
+    $params = [] ;
+    $job_ident->addToArray($params);
+    $resp = $this->client->_rest->get("job/parsing", $params);
 
     return json_decode($resp->getBody(), true);
   }

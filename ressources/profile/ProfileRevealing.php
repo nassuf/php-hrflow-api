@@ -15,12 +15,12 @@ class ProfileRevealing
 
 
   public function get(HrflowProfileIdent $profile_ident, HrflowJobIdent $job_ident, string $source_id) {
-    $query = array(
+    $params = [
       'source_id'  => $source_id
-    );
-    $profile_ident->addToArray($query);
-    $job_ident->addToArray($query);
-    $resp = $this->client->_rest->get("profile/revealing", $query);
+    ];
+    $profile_ident->addToArray($params);
+    $job_ident->addToArray($params);
+    $resp = $this->client->_rest->get("profile/revealing", $params);
 
     return json_decode($resp->getBody(), true);
   }

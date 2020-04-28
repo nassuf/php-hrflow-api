@@ -12,9 +12,9 @@ class JobEmbedding
 
   public function get(HrflowJobIdent $job_ident)
   {
-    $query = [];
-    $job_ident->addToArray($query);
-    $resp = $this->client->_rest->get("job/embedding", $query);
+    $params = [];
+    $job_ident->addToArray($params);
+    $resp = $this->client->_rest->get("job/embedding", $params);
 
     return json_decode($resp->getBody(), true);
   }

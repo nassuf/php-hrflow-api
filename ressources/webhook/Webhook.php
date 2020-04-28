@@ -26,8 +26,8 @@
     }
 
     public function check($url, $type) {
-      $json = ['url' => $url, 'type' => $type] ;
-      $resp = $this->client->_rest->postJson("webhook/check", $json);
+      $data = ['url' => $url, 'type' => $type] ;
+      $resp = $this->client->_rest->postJson("webhook/check", $data);
 
       return json_decode($resp->getBody(), true);
     }

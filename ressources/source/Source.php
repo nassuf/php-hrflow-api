@@ -22,8 +22,8 @@
     }
 
     public function get(string $source_id) {
-      $query = ['source_id' => $source_id];
-      $resp = $this->client->_rest->get("source", $query);
+      $params = ['source_id' => $source_id];
+      $resp = $this->client->_rest->get("source", $params);
 
       return json_decode($resp->getBody(), true)['data'];
     }

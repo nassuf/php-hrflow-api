@@ -13,11 +13,11 @@ class JobSearching
   }
 
   public function get(string $name=null) {
-    $query = [] ;
+    $params = [] ;
     if($name){
-      $query['name'] = $name ;
+      $params['name'] = $name ;
     }
-    $resp = $this->client->_rest->get("jobs/searching");
+    $resp = $this->client->_rest->get("jobs/searching", $params);
     return json_decode($resp->getBody(), true);
   }
 }

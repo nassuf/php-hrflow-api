@@ -23,41 +23,41 @@ require_once  __DIR__.'/../ValueFormater.php';
       if(!$date_end){
           $date_end = time();
       }
-      $query = [] ;
-      $query["source_ids"]        = json_encode($source_ids);
-      $query["job_id"]            = $job_id;
-      $query["stage"]             = $stage;
-      $query["use_agent"]         = $use_agent;
-      $query["name"]              = $name;
-      $query["email"]             = $email;
-      $query["location_geopoint"] = json_encode($location_geopoint);
-      $query["location_distance"] = $location_distance;
-      $query["summary_keywords"]  = json_encode($summary_keywords);
-      $query["text_keywords"]     = json_encode($text_keywords);
+      $params = [] ;
+      $params["source_ids"]        = json_encode($source_ids);
+      $params["job_id"]            = $job_id;
+      $params["stage"]             = $stage;
+      $params["use_agent"]         = $use_agent;
+      $params["name"]              = $name;
+      $params["email"]             = $email;
+      $params["location_geopoint"] = json_encode($location_geopoint);
+      $params["location_distance"] = $location_distance;
+      $params["summary_keywords"]  = json_encode($summary_keywords);
+      $params["text_keywords"]     = json_encode($text_keywords);
 
-      $query["experience_keywords"]          = json_encode($experience_keywords);
-      $query["experience_location_geopoint"] = json_encode($experience_location_geopoint);
-      $query["experience_location_distance"] = $experience_location_distance;
-      $query["experiences_duration_min"]     = $experiences_duration_min;
-      $query["experiences_duration_max"]     = $experiences_duration_max;
+      $params["experience_keywords"]          = json_encode($experience_keywords);
+      $params["experience_location_geopoint"] = json_encode($experience_location_geopoint);
+      $params["experience_location_distance"] = $experience_location_distance;
+      $params["experiences_duration_min"]     = $experiences_duration_min;
+      $params["experiences_duration_max"]     = $experiences_duration_max;
 
-      $query["education_keywords"]          = json_encode($education_keywords);
-      $query["education_location_geopoint"] = json_encode($education_location_geopoint);
-      $query["education_location_distance"] = $education_location_distance;
-      $query["educations_duration_min"]     = $educations_duration_min;
-      $query["educations_duration_max"]     = $educations_duration_max;
-      $query["skills_dict"]                 = json_encode($skills_dict);
-      $query["languages_dict"]              = json_encode($languages_dict);
-      $query["interests_dict"]              = json_encode($interests_dict);
-      $query["labels_dict"]                 = json_encode($labels_dict);
-      $query["date_end"]                    = $date_end;
-      $query["date_start"]                  = $date_start;
-      $query["limit"]                       = $limit;
-      $query["page"]                        = $page;
-      $query["sort_by"]                     = $sort_by;
-      $query["order_by"]                    = $order_by;
+      $params["education_keywords"]          = json_encode($education_keywords);
+      $params["education_location_geopoint"] = json_encode($education_location_geopoint);
+      $params["education_location_distance"] = $education_location_distance;
+      $params["educations_duration_min"]     = $educations_duration_min;
+      $params["educations_duration_max"]     = $educations_duration_max;
+      $params["skills_dict"]                 = json_encode($skills_dict);
+      $params["languages_dict"]              = json_encode($languages_dict);
+      $params["interests_dict"]              = json_encode($interests_dict);
+      $params["labels_dict"]                 = json_encode($labels_dict);
+      $params["date_end"]                    = $date_end;
+      $params["date_start"]                  = $date_start;
+      $params["limit"]                       = $limit;
+      $params["page"]                        = $page;
+      $params["sort_by"]                     = $sort_by;
+      $params["order_by"]                    = $order_by;
 
-      $resp = $this->client->_rest->get("profiles/scoring", $query);
+      $resp = $this->client->_rest->get("profiles/scoring", $params);
       return json_decode($resp->getBody(), true);
     }
   }

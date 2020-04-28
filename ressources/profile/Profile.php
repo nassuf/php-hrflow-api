@@ -33,7 +33,7 @@ require_once __DIR__ . '/ProfileReasoning.php';
     }
 
 
-    public function add_json(string $source_id, array $profile_json, $profile_reference=null, $timestamp_reception=null,
+    public function addJson(string $source_id, array $profile_json, $profile_reference=null, $timestamp_reception=null,
                              $profile_labels=[], $profile_tags=[], $profile_metadatas=[])
     {
       if (!empty($profile_reference) && $profile_reference instanceof ProfileReference) {
@@ -41,7 +41,7 @@ require_once __DIR__ . '/ProfileReasoning.php';
       }
       $timestamp_reception = ValueFormater::format_dateToTimestamp($timestamp_reception, 'timestamp_reception');
 
-      $payload = [
+      $data = [
           'source_id'           => $source_id,
           'profile_type'        => 'json',
           'profile_reference'   => $profile_reference,
@@ -52,13 +52,13 @@ require_once __DIR__ . '/ProfileReasoning.php';
 
       ];
 
-      RequestBodyUtils::add_if_not_null($payload, 'timestamp_reception', $timestamp_reception);
-      $resp = $this->client->_rest->postData("profile", $payload);
+      RequestBodyUtils::add_if_not_null($data, 'timestamp_reception', $timestamp_reception);
+      $resp = $this->client->_rest->postData("profile", $data);
 
       return json_decode($resp->getBody(), true);
     }
 
-    public function add_file(string $source_id, $profile_file, $profile_content_type=null, $profile_reference=null, $timestamp_reception=null,
+    public function addFile(string $source_id, $profile_file, $profile_content_type=null, $profile_reference=null, $timestamp_reception=null,
                              $profile_labels=[], $profile_tags=[], $profile_metadatas=[], $sync_parsing=0)
     {
 
@@ -66,7 +66,7 @@ require_once __DIR__ . '/ProfileReasoning.php';
       // cause it can be a ProfileReference object or a string
       $profile_reference = ValueFormater::ident_to_string($profile_reference);
 
-      $payload = [
+      $data = [
           'source_id'           => $source_id,
           'profile_type'        => 'file',
           'profile_content_type'=> $profile_content_type,
@@ -78,16 +78,16 @@ require_once __DIR__ . '/ProfileReasoning.php';
 
       ];
 
-      if (array_key_exists('timestamp_reception', $payload)){
-        $payload['timestamp_reception'] =  ValueFormater::format_dateToTimestamp($timestamp_reception, 'reception_date');
+      if (array_key_exists('timestamp_reception', $data)){
+        $data['timestamp_reception'] =  ValueFormater::format_dateToTimestamp($timestamp_reception, 'reception_date');
       }
 
 
-      $resp = $this->client->_rest->postFile("profile", $payload, $profile_file);
+      $resp = $this->client->_rest->postFile("profile", $data, $profile_file);
       return json_decode($resp->getBody(), true)['data'];
     }
 
-    public function add_folder(string $source_id, string $dir_path, bool $recurs=false, $timestamp_reception=null, $sync_parsing=0)
+    public function addFolder(string $source_id, string $dir_path, bool $recurs=false, $timestamp_reception=null, $sync_parsing=0)
     {
       if (!is_dir($dir_path)) {
         throw new \HrflowApiArgumentException("'".$dir_path."' is not a directory.", 1);

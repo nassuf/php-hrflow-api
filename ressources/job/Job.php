@@ -21,7 +21,7 @@ require_once __DIR__ . '/JobReasoning.php';
     }
 
 
-  public function add_json($name, $agent_id, $job_reference, $job_labels=[], $job_metadatas=[], $timestamp_reception=null, $kwargs =[]) {
+  public function add_json($name, $agent_id, $job_reference, $job_tags =[], $job_metadatas=[], $timestamp_reception=null, $kwargs =[]) {
 
 
     $timestamp_reception = ValueFormater::format_dateToTimestamp($timestamp_reception, 'timestamp_reception');
@@ -30,7 +30,7 @@ require_once __DIR__ . '/JobReasoning.php';
         "name"            => $name,
         "agent_id"        => $agent_id,
         "job_reference"   => $job_reference,
-        "job_labels"      => $job_labels,
+        "job_tags"        => $job_tags,
         "job_metadatas"   => $job_metadatas
     );
     $data = array_merge($payload, $kwargs);
